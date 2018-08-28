@@ -10,15 +10,47 @@ contenida, indicar cuántos estudiantes perteneces al grupo:
  */
 package Comision1852_CodoaCodoTP2;
 
+import java.util.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus Arias
  */
 public class T2_ej4 {
+
     public static void main(String[] args) {
-        
-        
-        
+        int estudiantes = 0, bajo = 0, regular = 0, bueno = 0, muyBueno = 0, excelente = 0;
+
+        estudiantes = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de alumnos:"));
+
+        int[] matriz_aleatorio = new int[estudiantes];
+        for (int j = 0; j < matriz_aleatorio.length; j++) {
+            matriz_aleatorio[j] = (int) Math.round(Math.random() * 10);
+        }
+
+        for (int i = 0; i < matriz_aleatorio.length; i++) {
+            if (matriz_aleatorio[i] < 4) {
+                bajo++;
+            } else if (matriz_aleatorio[i] <= 5) {
+                regular++;
+            } else if (matriz_aleatorio[i] <= 7) {
+                bueno++;
+            } else if (matriz_aleatorio[i] <= 9) {
+                muyBueno++;
+            } else {
+                excelente++;
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "El total de estudiantes es: "
+                + estudiantes
+                + "\nLos niveles son:"
+                + "\nBajo: " + bajo
+                + "\nRegulares: " + regular
+                + "\nBuenos: " + bueno
+                + "\nMuy Buenos: " + muyBueno
+                + "\nExcelentes: " + excelente);
     }
-    
+
 }
